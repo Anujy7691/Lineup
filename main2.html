@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            background: url(back.jpg);
+            background-size: 700px;
+
+            /* background-position:fixed;
+            background-size: cover;
+            backdrop-filter: blur(3px);
+            background-repeat: no-repeat; */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vH;
+
+
+
+        }
+
+        .header {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 30px;
+            padding-left: 20px;
+            margin-bottom: 25px;
+
+        }
+
+        #taskinput {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .todo-app {
+            width: 100%;
+            max-width: 540px;
+            margin: 100px auto 20px;
+            padding: 40px 30px 70px;
+            border-radius: 10px;
+            backdrop-filter: blur(150px);
+        }
+
+        .todo-app h2 {
+            color: #0278AE;
+            display: flex;
+            align-items: center;
+            font-size: 45px;
+            margin-left: 122px;
+        }
+
+        .todo-app h2 img {
+            width: 30px;
+            margin-left: 10px;
+        }
+
+        .read-aloud {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            width: 475px;
+        }
+
+        .read-aloud button {
+            background-color: #086972;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 350px;
+            cursor: pointer;
+
+        }
+
+        .read-aloud button:hover {
+            background-color: #086972;
+        }
+
+        #timeDisplay {
+            display: flex;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0;
+            position: relative;
+            width: 100px;
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 10px;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            padding: 16px 50px;
+            background: #086972;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 40px;
+        }
+
+        button:hover {
+            background-color: #086972;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .delete-task-button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .delete-task-button:hover {
+            background-color: #ff5252;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img
+                    src="https://pluspng.com/img-png/to-do-list-png-checklist-task-to-do-list-plan-work-reminder-668.png"
+                    alt=""></h2>
+            <span>
+                <p id="timeDisplay"></p>
+            </span>
+            <div class="read-aloud">
+                <button id="readAloudButton">Read Aloud</button>
+            </div>
+
+            <div class="row">
+                <input type="text" id="taskInput" placeholder="Add Your Text">
+                <button id="addTaskButton">ADD</button>
+            </div>
+            <ul id="taskList">
+
+            </ul>
+            
+        </div>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const taskInput = document.getElementById("taskInput");
+            const addTaskButton = document.getElementById("addTaskButton");
+            const taskList = document.getElementById("taskList");
+            const readAloudButton = document.getElementById("readAloudButton");
+            const timeDisplay = document.getElementById("timeDisplay");
+            const startTimerButton = document.getElementById("startTimerButton");
+
+            readAloudButton.addEventListener("click", function () {
+                const taskItems = document.querySelectorAll("#taskList li span");
+                const tasksToRead = Array.from(taskItems).map(item => item.textContent).join(". ");
+                if ('speechSynthesis' in window) {
+                    const speech = new SpeechSynthesisUtterance(tasksToRead);
+                    speech.lang = 'en-US';
+                    speech.volume = 1;
+                    speech.rate = 1;
+                    speech.pitch = 1;
+                    speechSynthesis.speak(speech);
+                } else {
+                    alert("Your browser does not support speech synthesis.");
+                }
+            });
+
+
+            function updateTime() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+                timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+
+            setInterval(updateTime, 1000);
+
+            addTaskButton.addEventListener("click", function () {
+                const taskText = taskInput.value.trim();
+
+                if (taskText !== "") {
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                <span>${taskText}</span>
+                <button class="delete-task-button">Delete</button>
+            `;
+                    taskList.appendChild(li);
+
+                    taskInput.value = "";
+
+                    const deleteButton = li.querySelector(".delete-task-button");
+                    deleteButton.addEventListener("click", function () {
+                        taskList.removeChild(li);
+                    });
+                }
+            });
+
+
+            taskInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    addTaskButton.click();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineup</title>
+    <style>
+        body {
+            background: #EFFFFD
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .leftsection {
+            margin-top: 218px;
+            margin-left: 115px;
+            margin-right: 168px;
+
+        }
+
+        .rightsection img {
+            margin: 89px 90px -679px 100px;
+            width: auto;
+            height: 810px;
+        }
+
+        .containt h1 {
+            display: flex;
+            font-size: 80px;
+            font-family: "museo", "Museo Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 500;
+            color: #005B41;
+            margin: 0 0 40px;
+            text-align: center;
+        }
+
+        .containt p {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .create-a-to-do-lists {
+            margin-left: 448px;
+        }
+
+        button {
+            border-radius: 10px;
+            font-size: 25px;
+            width: 320px;
+            height: 70px;
+            padding: 20px 70px;
+            background-color: #80A3A2;
+        }
+
+        button a p {
+            margin-top: -3px;
+            font-size: 1.5rem;
+            width: 195px;
+        }
+
+        button:hover {
+            background-color: #2c7ba0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #80A3A2;
+            height: 80px;
+            width: 1517px;
+            left: 0;
+            right: 0;
+            top: 0;
+            position: fixed;
+        }
+center
+        nav ul {
+            display: flex;
+        }
+
+        nav ul a {
+            text-decoration: none;
+        }
+
+        nav ul a :hover {
+            background-color: #80A3A2;
+        }
+
+        .left {
+            font-size: 2rem;
+            margin-left: 0px;
+        }
+
+        .last {
+            background: #80A3A2;
+            height: 460px;
+            margin-top: 198px;
+        }
+
+        .last h1 {
+            font-size: 3rem;
+            padding-top: 66px;
+            margin-left: 60px;
+            line-height: 30px;
+        }
+
+        .last h4 {
+            font-size: 1.4rem;
+            margin-left: 62px;
+            margin-right: 900px;
+            line-height: 33px;
+        }
+
+        .last hr {
+            margin-left: 56px;
+            margin-right: 0px;
+            text-decoration: none;
+            display: flex;
+            width: 170px;
+            height: 3px;
+            background: black;
+            padding-right: 60px;
+            margin-top: -16px;
+        }
+
+        .last2 {
+            background: #EFFFFD;
+            height: 400px;
+
+        }
+
+        .last2 h1 {
+            display: block;
+            left: 0;
+            margin-left: 844px;
+            font-size: 3rem;
+        }
+
+        .last2 hr {
+            margin-left: 846px;
+            margin-right: 18px;
+            text-decoration: none;
+            display: flex;
+            width: 170px;
+            height: 3px;
+            background: black;
+            padding-right: 375px;
+            margin-top: -21px;
+        }
+
+        .last2 h4 {
+            font-size: 1.5rem;
+            margin-left: 856px;
+            margin-right: 87px;
+            line-height: 42px;
+            padding-left: 0px;
+        }
+
+        .last2img {
+            margin: -273px 0px 17px 116px;
+            border-radius: 193px;
+            width: 559px;
+        }
+
+
+
+        .last3 {
+            background: #f3f3f3;
+            height: 300px;
+        }
+
+        .last3 h1 {
+            font-size: 3rem;
+            padding-top: 66px;
+            margin-left: 285px;
+            line-height: 30px;
+        }
+
+        .last3 p {
+            font-size: 1.4rem;
+            margin-left: 318px;
+            margin-right: 277px;
+            line-height: 32px;
+            text-align: center;
+        }
+
+        .last4 img {
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #42C2FF;
+            height: 350px;
+            border-radius: 70px;
+        }
+
+        .footer1 {
+            display: flex;
+        }
+
+        .services {
+            margin-left: 244px;
+            margin-right: 100px;
+            width: 50%;
+        }
+
+        .services h2 {
+            margin-bottom: -17px;
+        }
+
+        .services ul {
+            font-size: 1.15rem;
+            list-style: none;
+            padding: 9px;
+            margin-bottom: -15px;
+            line-height: 25px;
+        }
+
+        .about h2 {
+            margin-bottom: -8px
+        }
+
+        .about ul {
+            font-size: 1.15rem;
+            list-style: none;
+            line-height: 25px;
+            margin-left: -39px;
+        }
+
+        .intro h1 {
+            text-align: center;
+        }
+
+        .img {
+            height: 49px;
+            width: 100px;
+            display: inline-block;
+            margin-left: 694px;
+        }
+
+        .img p {
+            margin-left: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                LINEUP
+            </div>
+            <div class="right">
+                <ul>
+                    <a href="main2.html">LOG IN</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class='container'>
+            <div class="leftsection">
+                <div class="containt">
+                    
+                    <h1>Really simple to-do lists you can share</h1>
+                    
+                </div>
+                <div class="create-a-to-do-lists">
+                    <button id="create-a-to-do-lists"><a href="main2.html">
+                            <p>create a to do lists</p>
+                        </a></button>
+                </div>
+            </div>
+        </section>
+
+        <div>
+            <section class="container2">
+                <div class="last">
+                    <h1>To do list</h1>
+                    <hr>
+                    <p>
+                    <h4>Create to-do list for work, personal goal, festivals,
+                        and for many more events
+                        and share this list with your friends. It's free and can be used without registration.
+                    </h4>
+                    <img src="https://www.any.do/v4/images/mac/main-image-to-do@2x.png" alt="" style="    height: 559px;
+    margin: -345px 0px 0px 865px;">
+                    </p>
+                </div>
+
+                <div class="last2">
+                    <h1>Organize everything in life</h1>
+                    <hr>
+                    <p>
+                    <h4>Either there is a task of your work or a personal goal, LINEUP is here to help you manage all
+                        your to-dos on Time.</h4>
+                    <img src="https://organizingmoms.com/wp-content/uploads/brain-dump-list.jpg" alt="" style=" margin: -273px 0px 17px 116px;
+            border-radius: 193px;
+            width: 559px;
+        ">
+                    </p>
+
+                </div>
+
+                <div class="last3">
+                    <h1>Designed for your browser, works everywhere</h1>
+                    <p>Don’t let anything hold you back. Realizing work also happens outside of the office, we made
+                        LINEUP1 available and in
+                        constant sync across all mobile devices, tablets, smart watches </p>
+                </div>
+                <div class="last4">
+                    <img src="	https://www.any.do/v4/images/index/device_canvas.webp" alt="">
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+
+
+</body>
+
+</html>
